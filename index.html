@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#064a2b">
+  <link rel="icon" type="image/png" href="assets/huda-agro-solutions-logo.png">
+  <meta name="description" content="Huda Agro-solution Limited provides livestock farming and agribusiness consultation across cattle, goats and sheep, poultry, fish farming and rabbit farming in Nigeria.">
+  <title>Huda Agro-solution Limited | Livestock Farming & Agribusiness Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #173f2c;
+      --forest-deep: #102d20;
+      --leaf: #799653;
+      --leaf-light: #dfe8d2;
+      --cream: #f7f5ed;
+      --paper: #fffdf8;
+      --sand: #e9e2d2;
+      --terra: #b3131b;
+      --ink: #1f2b22;
+      --muted: #68736a;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(23, 63, 44, .10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1160px, calc(100% - 44px)); margin: 0 auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--leaf); font-size: .76rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; height: 2px; width: 24px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: 'Manrope', sans-serif; letter-spacing: -.04em; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.6rem); line-height: .99; max-width: 760px; margin: 24px 0; }
+    h2 { font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.08; margin-bottom: 18px; }
+    h3 { font-size: 1.15rem; line-height: 1.25; margin-bottom: 10px; }
+    p { color: var(--muted); }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 11px; border: 1px solid transparent; border-radius: 999px; padding: 14px 22px; font-weight: 700; font-size: .93rem; transition: transform .2s ease, background .2s ease, border-color .2s ease; cursor: pointer; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--white); background: var(--terra); box-shadow: 0 9px 22px rgba(200,117,67,.22); }
+    .btn-primary:hover { background: #960d14; }
+    .btn-light { color: var(--forest); background: var(--paper); }
+    .btn-outline { color: var(--forest); border-color: rgba(23,63,44,.22); background: transparent; }
+    .btn-outline:hover { background: var(--leaf-light); }
+    .arrow { font-size: 1.15rem; line-height: 1; }
+
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,253,248,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(23,63,44,.08); }
+    .nav-wrap { min-height: 100px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 230px; }
+    .brand-logo { display: block; flex: 0 0 auto; width: 82px; height: 82px; object-fit: contain; background: #fff; border-radius: 50%; }
+    .brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 14px 14px 14px 4px; color: var(--paper); background: var(--forest); }
+    .brand-copy { display: grid; line-height: 1.1; }
+    .brand-name { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: .86rem; line-height: 1.2; letter-spacing: -.035em; max-width: 225px; }
+    .brand-tag { color: var(--muted); font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-top: 5px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 36px); color: #46544a; font-size: .9rem; font-weight: 600; }
+    .nav-links a:not(.btn):hover { color: var(--terra); }
+    .nav-links .btn { padding: 11px 17px; font-size: .86rem; }
+    .menu-toggle { display: none; border: 1px solid var(--sand); background: var(--paper); color: var(--forest); border-radius: 12px; width: 44px; height: 44px; font-size: 1.25rem; }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; background: var(--forest); color: var(--paper); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 77% 22%, rgba(121,150,83,.26), transparent 28%), linear-gradient(112deg, var(--forest-deep) 0%, var(--forest) 55%, #234d34 100%); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.02fr .98fr; min-height: 650px; align-items: center; gap: 36px; padding-top: 54px; padding-bottom: 64px; }
+    .hero .eyebrow { color: #c3d7a4; }
+    .hero h1 span { color: #c8dca8; }
+    .hero-copy { max-width: 560px; font-size: 1.06rem; color: rgba(255,253,248,.75); margin-bottom: 28px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 20px 26px; color: rgba(255,253,248,.74); font-size: .83rem; }
+    .hero-meta span { display: inline-flex; gap: 8px; align-items: center; }
+    .check { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; color: var(--forest); background: #c8dca8; font-size: .72rem; font-weight: 900; }
+    .hero-visual { position: relative; min-height: 485px; display: flex; align-items: center; justify-content: center; }
+    .hero-photo { position: absolute; width: 82%; height: 430px; right: 2%; top: 18px; border-radius: 48% 48% 24px 24px; overflow: hidden; background: linear-gradient(135deg, #6a8650, #dbc79b); border: 8px solid rgba(255,253,248,.12); box-shadow: 0 25px 70px rgba(0,0,0,.22); }
+    .hero-photo img { height: 100%; filter: saturate(.86); }
+    .photo-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,45,32,.02) 25%, rgba(16,45,32,.47)); }
+    .photo-label { position: absolute; left: 24px; right: 24px; bottom: 24px; color: #fff; }
+    .photo-label strong { display: block; font-family: 'Manrope', sans-serif; font-size: 1.2rem; }
+    .photo-label span { color: rgba(255,255,255,.78); font-size: .82rem; }
+    .floating-note { position: absolute; left: -2%; bottom: 42px; max-width: 235px; padding: 18px 20px; border-radius: 17px; color: var(--ink); background: var(--paper); box-shadow: var(--shadow); }
+    .floating-note .note-icon { display: grid; place-items: center; height: 38px; width: 38px; background: var(--leaf-light); border-radius: 12px; margin-bottom: 11px; color: var(--forest); }
+    .floating-note strong { display: block; font-family: 'Manrope', sans-serif; font-size: 1rem; line-height: 1.25; }
+    .floating-note span { display: block; color: var(--muted); font-size: .78rem; margin-top: 6px; }
+    .hero-stamp { position: absolute; top: 0; right: -1%; width: 96px; height: 96px; display: grid; place-items: center; border: 1px solid rgba(255,253,248,.36); border-radius: 50%; color: #dbe8c5; font-family: 'Manrope', sans-serif; font-size: .62rem; line-height: 1.4; text-align: center; text-transform: uppercase; letter-spacing: .12em; transform: rotate(12deg); }
+
+    /* Value strip */
+    .value-strip { background: var(--cream); border-bottom: 1px solid var(--sand); }
+    .value-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 25px; padding-bottom: 25px; }
+    .value-item { display: flex; align-items: center; gap: 14px; padding: 4px 18px; border-right: 1px solid #ded8c9; }
+    .value-item:first-child { padding-left: 0; }
+    .value-item:last-child { border: 0; }
+    .value-icon { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; border-radius: 15px; color: var(--forest); background: #e3ead7; }
+    .value-item strong { display: block; font-family: 'Manrope', sans-serif; font-size: .93rem; }
+    .value-item small { color: var(--muted); font-size: .79rem; }
+
+    /* Section basics */
+    .section { padding: 105px 0; }
+    .section-head { max-width: 650px; margin-bottom: 42px; }
+    .section-head p { max-width: 540px; font-size: 1rem; }
+    .section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
+    .section-head.center .eyebrow { justify-content: center; }
+    .section-head.center p { margin-left: auto; margin-right: auto; }
+
+    /* Services */
+    .services { background: var(--paper); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service-card { padding: 29px 27px 26px; border: 1px solid #e9e6dc; border-radius: var(--radius); background: #fff; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: #d3dec4; }
+    .service-icon { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 17px; color: var(--forest); background: var(--leaf-light); margin-bottom: 24px; }
+    .service-card p { font-size: .9rem; margin-bottom: 18px; }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--forest); font-weight: 800; font-size: .85rem; }
+    .text-link:hover { color: var(--terra); }
+
+    /* About */
+    .about { background: var(--cream); overflow: hidden; }
+    .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: clamp(40px, 8vw, 100px); }
+    .about-visual { position: relative; min-height: 510px; }
+    .about-main-photo { width: 78%; height: 455px; border-radius: 24px; overflow: hidden; background: #d4d9bd; }
+    .about-main-photo img { height: 100%; }
+    .about-small-photo { position: absolute; width: 51%; height: 215px; right: 0; bottom: 0; border: 8px solid var(--cream); border-radius: 21px; overflow: hidden; background: #d3c0a1; }
+    .about-small-photo img { height: 100%; }
+    .about-badge { position: absolute; right: 5%; top: 38px; width: 114px; height: 114px; border-radius: 50%; display: grid; place-items: center; text-align: center; background: var(--terra); color: white; padding: 12px; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: .83rem; line-height: 1.2; box-shadow: 0 10px 28px rgba(200,117,67,.24); }
+    .about-copy p { max-width: 560px; }
+    .check-list { display: grid; gap: 13px; margin: 27px 0 31px; padding: 0; list-style: none; }
+    .check-list li { display: flex; gap: 12px; align-items: flex-start; color: #4a574d; font-size: .94rem; }
+    .check-list .check { flex: 0 0 21px; margin-top: 2px; }
+
+    /* Focus areas */
+    .focus-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .focus-card { overflow: hidden; position: relative; border-radius: 22px; min-height: 360px; background: #d9dfc6; isolation: isolate; }
+    .focus-card img { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; transition: transform .6s ease; }
+    .focus-card:hover img { transform: scale(1.06); }
+    .focus-card::after { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(16,45,32,0) 24%, rgba(16,45,32,.9) 100%); }
+    .focus-content { position: absolute; left: 24px; right: 24px; bottom: 24px; color: white; }
+    .focus-tag { display: inline-flex; padding: 6px 10px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,.36); border-radius: 999px; color: rgba(255,255,255,.9); font-size: .7rem; text-transform: uppercase; font-weight: 700; letter-spacing: .1em; }
+    .focus-content h3 { color: white; font-size: 1.42rem; margin-bottom: 8px; }
+    .focus-content p { color: rgba(255,255,255,.77); font-size: .86rem; margin-bottom: 0; }
+
+    /* Process */
+    .process { background: var(--forest); color: var(--paper); }
+    .process .eyebrow { color: #c7dca7; }
+    .process .section-head p { color: rgba(255,253,248,.68); }
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 45px; }
+    .process-step { padding: 0 25px; border-left: 1px solid rgba(255,255,255,.18); }
+    .process-step:first-child { padding-left: 0; border-left: 0; }
+    .step-number { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: #d6e4bd; color: var(--forest); font-family: 'Manrope', sans-serif; font-weight: 800; font-size: .9rem; margin-bottom: 23px; }
+    .process-step h3 { color: var(--paper); }
+    .process-step p { color: rgba(255,253,248,.64); font-size: .87rem; margin-bottom: 0; }
+
+    /* CTA */
+    .cta-section { padding: 90px 0; background: var(--cream); }
+    .cta-panel { background: var(--leaf-light); border-radius: 28px; padding: clamp(30px, 6vw, 66px); display: flex; align-items: center; justify-content: space-between; gap: 30px; position: relative; overflow: hidden; }
+    .cta-panel::after { content: ''; position: absolute; width: 300px; height: 300px; border: 1px solid rgba(23,63,44,.14); border-radius: 50%; right: 15%; top: -190px; box-shadow: 0 0 0 34px rgba(23,63,44,.035), 0 0 0 68px rgba(23,63,44,.025); }
+    .cta-copy { max-width: 650px; position: relative; z-index: 1; }
+    .cta-copy h2 { font-size: clamp(1.9rem, 3.5vw, 3rem); margin-bottom: 12px; }
+    .cta-copy p { margin-bottom: 0; max-width: 580px; }
+    .cta-panel .btn { flex-shrink: 0; position: relative; z-index: 1; }
+
+    /* Contact */
+    .contact { background: var(--paper); }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; align-items: start; }
+    .contact-details { margin-top: 32px; display: grid; gap: 18px; }
+    .contact-detail { display: flex; gap: 14px; align-items: flex-start; }
+    .contact-detail .service-icon { flex: 0 0 46px; width: 46px; height: 46px; margin: 0; border-radius: 14px; }
+    .contact-detail strong { display: block; font-family: 'Manrope', sans-serif; font-size: .9rem; margin-bottom: 3px; }
+    .contact-detail span, .contact-detail a { display: block; color: var(--muted); font-size: .88rem; }
+    .contact-form { padding: 33px; background: var(--cream); border: 1px solid #e9e6dc; border-radius: 24px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: .81rem; font-weight: 800; color: #435146; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid #dddccf; background: var(--paper); color: var(--ink); border-radius: 11px; padding: 13px 14px; outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--leaf); box-shadow: 0 0 0 3px rgba(121,150,83,.14); }
+    .field textarea { min-height: 118px; resize: vertical; }
+    .form-note { margin: 15px 0 0; color: #7b837b; font-size: .76rem; }
+    .form-status { display: none; margin-top: 12px; font-size: .86rem; color: var(--forest); }
+
+    /* Footer */
+    footer { background: var(--forest-deep); color: var(--paper); padding: 55px 0 24px; }
+    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; padding-bottom: 36px; }
+    footer .brand-tag { color: rgba(255,253,248,.58); }
+    .footer-copy { max-width: 360px; color: rgba(255,253,248,.65); font-size: .87rem; margin-top: 18px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 16px 24px; color: rgba(255,253,248,.76); font-size: .87rem; }
+    .footer-links a:hover { color: #d4e4b8; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.15); padding-top: 20px; display: flex; justify-content: space-between; gap: 20px; color: rgba(255,253,248,.48); font-size: .77rem; }
+
+    @media (max-width: 900px) {
+      .nav-links { gap: 17px; }
+      .nav-links a:not(.btn) { font-size: .83rem; }
+      .brand { min-width: auto; }
+      .hero-grid { grid-template-columns: 1fr  .8fr; gap: 20px; min-height: 570px; }
+      .hero-visual { min-height: 420px; }
+      .hero-photo { width: 90%; height: 385px; }
+      .floating-note { left: -4%; bottom: 20px; max-width: 200px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .focus-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 35px 0; }
+      .process-step:nth-child(3) { border-left: 0; padding-left: 0; }
+      .contact-grid { gap: 38px; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 32px, 540px); }
+      .nav-wrap { min-height: 82px; }
+      .brand-logo { width: 64px; height: 64px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-links { display: none; position: absolute; top: 81px; left: 0; right: 0; background: var(--paper); padding: 18px 22px 24px; border-bottom: 1px solid var(--sand); box-shadow: 0 20px 30px rgba(0,0,0,.08); align-items: stretch; gap: 0; flex-direction: column; }
+      .nav-links.open { display: flex; }
+      .nav-links a:not(.btn) { padding: 13px 0; border-bottom: 1px solid #eee9dd; font-size: .94rem; }
+      .nav-links .btn { margin-top: 15px; }
+      .hero-grid { grid-template-columns: 1fr; padding-top: 56px; padding-bottom: 44px; gap: 14px; }
+      h1 { font-size: clamp(2.7rem, 13vw, 4.2rem); }
+      .hero-copy { font-size: .98rem; }
+      .hero-visual { min-height: 385px; margin: 3px 0 0; }
+      .hero-photo { width: 83%; height: 345px; right: 6%; top: 8px; }
+      .floating-note { left: 0; bottom: 11px; max-width: 188px; padding: 14px; }
+      .hero-stamp { right: 0; width: 77px; height: 77px; font-size: .5rem; }
+      .value-inner { grid-template-columns: 1fr; gap: 0; padding-top: 10px; padding-bottom: 10px; }
+      .value-item, .value-item:first-child { padding: 13px 0; border-right: 0; border-bottom: 1px solid #ded8c9; }
+      .value-item:last-child { border-bottom: 0; }
+      .section { padding: 72px 0; }
+      .section-head { margin-bottom: 30px; }
+      .service-grid, .focus-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 25px; }
+      .about-grid { grid-template-columns: 1fr; gap: 38px; }
+      .about-visual { min-height: 410px; order: 2; }
+      .about-main-photo { height: 365px; width: 82%; }
+      .about-small-photo { height: 180px; width: 54%; }
+      .about-badge { width: 96px; height: 96px; font-size: .73rem; }
+      .focus-card { min-height: 330px; }
+      .process-grid { grid-template-columns: 1fr; gap: 29px; }
+      .process-step, .process-step:first-child, .process-step:nth-child(3) { padding: 0 0 0 20px; border-left: 1px solid rgba(255,255,255,.18); }
+      .step-number { margin-bottom: 14px; }
+      .cta-section { padding: 60px 0; }
+      .cta-panel { align-items: flex-start; flex-direction: column; border-radius: 23px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .contact-form { padding: 22px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .footer-top { flex-direction: column; }
+      .footer-bottom { flex-direction: column; gap: 7px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+
+  <style>
+    :root {
+      --forest: #064c2d;
+      --forest-deep: #033b22;
+      --leaf: #4b8a34;
+      --leaf-light: #e6efda;
+      --cream: #faf9f0;
+      --paper: #fffefa;
+      --sand: #e8e8dd;
+      --terra: #d80f18;
+      --ink: #15271c;
+      --muted: #5e685f;
+      --shadow: 0 10px 28px rgba(3,59,34,.10);
+      --radius: 16px;
+    }
+    body { background: var(--paper); font-family: 'DM Sans', Arial, sans-serif; color: var(--ink); }
+    h1,h2,h3 { font-family: Georgia, 'Times New Roman', serif; letter-spacing: -.025em; }
+    .container { width: min(1440px, calc(100% - 64px)); }
+    .btn { border-radius: 17px; padding: 13px 22px; }
+    .btn-primary { background: var(--terra); box-shadow: none; }
+    .btn-primary:hover { background: #b90913; }
+    .btn-outline { border: 1.5px solid var(--forest); background: rgba(255,255,255,.7); }
+    .eyebrow { color: var(--forest); }
+    .eyebrow::before { display: none; }
+
+    /* Top brand and contact row */
+    .site-header { position: relative; top: auto; z-index: 30; background: var(--paper); border-bottom: none; backdrop-filter: none; }
+    .brandbar { background: #fffef9; }
+    .brandbar-inner { min-height: 112px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 8px; padding-bottom: 6px; }
+    .brand { display: flex; align-items: center; gap: 18px; min-width: 0; flex: 0 1 auto; }
+    .brand-logo { width: 112px; height: 112px; flex: 0 0 112px; border-radius: 50%; object-fit: contain; background: transparent; }
+    .brand-copy { display: grid; line-height: 1.08; min-width: 0; }
+    .brand-name { font-family: Georgia, 'Times New Roman', serif; color: #073e25; font-weight: 700; font-size: clamp(1.5rem, 2.25vw, 2.35rem); letter-spacing: -.035em; max-width: none; white-space: nowrap; }
+    .brand-tag { color: #17251c; font-size: clamp(.66rem, .86vw, .83rem); letter-spacing: .005em; font-weight: 500; text-transform: none; margin-top: 9px; line-height: 1.4; white-space: nowrap; }
+    .header-contact { display: grid; grid-template-columns: max-content max-content; justify-content: end; align-items: center; gap: 9px 22px; flex: 0 1 auto; }
+    .contact-top-item { display: flex; align-items: center; gap: 10px; color: #16251b; font-size: .82rem; line-height: 1.25; white-space: nowrap; }
+    .contact-top-item strong { display: block; font-size: .85rem; font-weight: 700; }
+    .contact-top-item small { display: block; font-size: .72rem; }
+    .mini-icon { display: grid; place-items: center; flex: 0 0 31px; width: 31px; height: 31px; border-radius: 50%; color: white; font-size: 1.05rem; font-weight: 700; line-height: 1; }
+    .mini-icon.green { background: #168b3d; }
+    .mini-icon.red { background: var(--terra); }
+    .contact-email { font-size: .76rem !important; font-weight: 500 !important; }
+    .contact-address { font-size: .76rem !important; font-weight: 500 !important; }
+
+    /* Dark green navigation bar */
+    .nav-bar { background: #034828; color: white; }
+    .nav-line { min-height: 52px; display: flex; justify-content: flex-end; align-items: stretch; position: relative; }
+    .nav-links { display: flex; align-items: stretch; justify-content: space-between; gap: clamp(8px, 1.2vw, 19px); color: white; font-size: .83rem; font-weight: 500; width: 100%; }
+    .nav-links a:not(.btn) { display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; color: #fff; white-space: nowrap; border-bottom: 3px solid transparent; transition: background .18s ease, border-color .18s ease; }
+    .nav-links a:not(.btn):hover { color: white; border-bottom-color: #ee2a2a; background: rgba(255,255,255,.05); }
+    .nav-links a.active { background: var(--terra); border-bottom-color: var(--terra); }
+    .nav-links .btn.nav-cta { display: inline-flex; align-self: center; gap: 9px; margin-left: 8px; padding: 10px 21px; border-radius: 16px; white-space: nowrap; font-size: .84rem; }
+    .menu-toggle { display: none; border: 1px solid rgba(255,255,255,.3); background: transparent; color: white; border-radius: 9px; width: 42px; height: 40px; }
+
+    /* Screenshot-inspired hero: warm cream text panel and livestock panorama */
+    .hero { position: relative; overflow: hidden; color: var(--forest-deep); background: #faf9f0; }
+    .hero::before { display: none; }
+    .hero-visual { position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; width: 70%; min-height: 0; display: block; overflow: hidden; }
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: saturate(1.04); }
+    .hero-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #faf9f0 0%, rgba(250,249,240,.94) 7%, rgba(250,249,240,.70) 17%, rgba(250,249,240,.20) 34%, rgba(250,249,240,0) 52%); }
+    .hero-grid { display: flex; align-items: center; position: relative; z-index: 1; min-height: 408px; padding-top: 33px; padding-bottom: 35px; gap: 0; }
+    .hero-content { max-width: 640px; position: relative; z-index: 2; }
+    .hero-eyebrow { display: block; color: #095034; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 800; margin-bottom: 13px; }
+    .hero h1 { font-family: Georgia, 'Times New Roman', serif; max-width: 650px; font-size: clamp(2.4rem, 3.65vw, 3.65rem); line-height: 1.01; letter-spacing: -.04em; color: #073e25; margin: 0 0 15px; }
+    .hero h1 span { color: #d10d17; display: inline; }
+    .hero-copy { max-width: 580px; font-size: clamp(.95rem, 1.12vw, 1.08rem); line-height: 1.52; color: #26332a; margin-bottom: 20px; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 0; }
+    .hero-actions .btn { min-height: 51px; border-radius: 18px; padding: 12px 26px; }
+    .hero-actions .btn-primary { min-width: 260px; }
+    .hero-actions .btn-outline { min-width: 215px; }
+    .whatsapp-mark { display: inline-grid; place-items: center; font-size: 1.25rem; }
+
+    /* Five livestock feature cards directly under the hero */
+    .livestock-section { padding: 13px 0 17px; background: #fffefa; }
+    .livestock-section .section-head { max-width: 950px; margin-bottom: 7px; }
+    .livestock-section .section-head h2 { display: flex; justify-content: center; align-items: center; gap: 28px; color: #073e25; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 2.7vw, 2.7rem); margin: 0 0 2px; }
+    .livestock-section .section-head h2::before, .livestock-section .section-head h2::after { content: ''; display: block; width: 80px; height: 2px; background: var(--terra); }
+    .livestock-section .section-head p { max-width: none; color: #1f2e24; font-size: .93rem; margin-bottom: 7px; }
+    .focus-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 13px; align-items: stretch; }
+    .focus-card { display: flex; flex-direction: column; min-height: 0; position: relative; overflow: hidden; border: 1px solid #e9e8dd; border-radius: 15px; background: #fff; isolation: auto; box-shadow: 0 2px 8px rgba(14,50,28,.035); }
+    .focus-card img { position: relative; inset: auto; z-index: auto; flex: 0 0 auto; width: 100%; height: 116px; object-fit: cover; object-position: center center; transition: transform .35s ease; }
+    .focus-card:hover img { transform: scale(1.03); }
+    .focus-card::after { display: none; }
+    .focus-content { position: relative; inset: auto; display: flex; flex: 1; flex-direction: column; align-items: center; padding: 0 12px 13px; color: #103d25; text-align: center; }
+    .focus-icon { display: grid; place-items: center; flex: 0 0 48px; width: 48px; height: 48px; margin: -24px auto 4px; position: relative; z-index: 2; border-radius: 50%; border: 3px solid white; background: #07502d; color: white; font-size: 1.27rem; line-height: 1; box-shadow: 0 2px 5px rgba(0,0,0,.10); }
+    .focus-content h3 { font-family: Georgia, 'Times New Roman', serif; color: #063e25; font-size: 1.05rem; line-height: 1.18; margin: 0 0 5px; letter-spacing: -.015em; }
+    .focus-content p { color: #2e342f; font-size: .81rem; line-height: 1.42; margin: 0 0 10px; max-width: 245px; }
+    .focus-link { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: auto; border: 1px solid #0a4b2c; border-radius: 12px; color: #073e25; padding: 5px 17px; font-size: .8rem; font-weight: 700; min-width: 143px; }
+    .focus-link:hover { background: #eaf1e3; }
+
+    /* Benefits strip matching the reference design */
+    .value-strip { background: linear-gradient(100deg, #064a2b 0%, #07502d 60%, #31551a 100%); color: white; border-bottom: 0; }
+    .value-inner { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 0; padding-top: 19px; padding-bottom: 19px; }
+    .value-item, .value-item:first-child { display: flex; align-items: center; gap: 12px; padding: 4px 17px; border-right: 1px solid rgba(255,255,255,.30); color: white; }
+    .value-item:first-child { padding-left: 0; }
+    .value-item:last-child { border-right: 0; padding-right: 0; }
+    .value-icon { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; border-radius: 0; color: white; background: transparent; }
+    .value-icon svg { width: 35px; height: 35px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .value-item strong { display: block; color: white; font-family: 'DM Sans', Arial, sans-serif; font-size: .83rem; line-height: 1.28; }
+    .value-item small { display: block; color: rgba(255,255,255,.8); font-size: .71rem; line-height: 1.3; margin-top: 3px; }
+
+    /* Interior sections retain the same green, cream and red brand language. */
+    .section { padding: 76px 0; }
+    .section-head h2 { color: #073e25; }
+    .section-head p { line-height: 1.65; }
+    .services { background: #fffefa; }
+    .service-card { border-radius: 15px; box-shadow: 0 3px 11px rgba(14,50,28,.035); }
+    .service-icon { border-radius: 14px; }
+    .about { background: #f7f6ed; }
+    .process { background: #064828; }
+    .cta-panel { background: #e8efdc; border-radius: 20px; }
+    .contact-form { border-radius: 17px; }
+    footer { background: #033b22; }
+
+    @media (max-width: 1280px) {
+      .container { width: min(100% - 48px, 1440px); }
+      .brandbar-inner { gap: 14px; }
+      .brand-logo { width: 92px; height: 92px; flex-basis: 92px; }
+      .brand { gap: 12px; }
+      .brand-name { font-size: clamp(1.4rem, 2vw, 2rem); }
+      .brand-tag { white-space: normal; max-width: 520px; }
+      .header-contact { gap: 8px 12px; }
+      .nav-links { gap: 4px; font-size: .77rem; }
+      .nav-links a:not(.btn) { padding: 0 7px; }
+      .nav-links .btn.nav-cta { padding: 9px 13px; }
+      .focus-grid { gap: 10px; }
+      .focus-content { padding-left: 8px; padding-right: 8px; }
+      .focus-content h3 { font-size: .96rem; }
+      .focus-content p { font-size: .77rem; }
+    }
+    @media (max-width: 1080px) {
+      .brandbar-inner { align-items: center; }
+      .header-contact { grid-template-columns: 1fr 1fr; }
+      .contact-top-item { font-size: .75rem; }
+      .contact-email, .contact-address { font-size: .69rem !important; }
+      .brand-name { white-space: normal; max-width: 390px; }
+      .nav-links a:not(.btn) { padding: 0 5px; font-size: .72rem; }
+      .nav-links .btn.nav-cta { font-size: .75rem; }
+      .hero-grid { min-height: 390px; }
+      .hero h1 { font-size: clamp(2.2rem, 4vw, 3.1rem); }
+      .hero-content { max-width: 585px; }
+      .focus-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .focus-card img { height: 150px; }
+      .focus-content h3 { font-size: 1.05rem; }
+      .value-inner { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .value-item:nth-child(3) { border-right: 0; }
+      .value-item:nth-child(n+4) { margin-top: 14px; }
+    }
+    @media (max-width: 900px) {
+      .brandbar-inner { padding-top: 10px; padding-bottom: 11px; }
+      .header-contact { max-width: 420px; }
+      .brand-logo { width: 78px; height: 78px; flex-basis: 78px; }
+      .brand-name { font-size: 1.5rem; max-width: 350px; }
+      .brand-tag { font-size: .65rem; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-line { min-height: 52px; justify-content: flex-start; align-items: center; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; width: 100%; z-index: 40; background: #034828; padding: 12px 18px 18px; align-items: stretch; gap: 0; flex-direction: column; box-shadow: 0 16px 25px rgba(0,0,0,.15); }
+      .nav-links.open { display: flex; }
+      .nav-links a:not(.btn) { display: flex; justify-content: flex-start; padding: 13px 12px; border-bottom: 1px solid rgba(255,255,255,.13); font-size: .9rem; }
+      .nav-links .btn.nav-cta { margin: 13px 0 0; justify-content: center; font-size: .9rem; }
+      .hero-visual { width: 72%; }
+      .hero-visual::after { background: linear-gradient(90deg, #faf9f0 0%, rgba(250,249,240,.93) 9%, rgba(250,249,240,.65) 24%, rgba(250,249,240,.06) 52%, transparent 72%); }
+      .hero-grid { min-height: 380px; }
+      .hero-content { max-width: 560px; }
+      .hero h1 { font-size: clamp(2.15rem, 4.5vw, 2.8rem); }
+      .hero-copy { max-width: 500px; }
+      .hero-actions .btn-primary, .hero-actions .btn-outline { min-width: 0; }
+      .value-inner { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .value-item, .value-item:first-child { padding: 12px 12px; border-bottom: 1px solid rgba(255,255,255,.20); }
+      .value-item:nth-child(2n) { border-right: 0; }
+      .value-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,.2); }
+      .value-item:last-child { border-bottom: 0; }
+      .contact-grid { gap: 30px; }
+    }
+    @media (max-width: 700px) {
+      .container { width: calc(100% - 30px); }
+      .brandbar-inner { flex-direction: column; align-items: stretch; gap: 13px; }
+      .brand { width: 100%; align-items: center; gap: 12px; }
+      .brand-logo { width: 70px; height: 70px; flex-basis: 70px; }
+      .brand-name { font-size: 1.35rem; line-height: 1.05; max-width: 100%; }
+      .brand-tag { font-size: .62rem; line-height: 1.3; margin-top: 5px; letter-spacing: 0; }
+      .header-contact { width: 100%; max-width: none; grid-template-columns: 1fr 1fr; gap: 9px 8px; }
+      .contact-top-item { gap: 7px; white-space: normal; min-width: 0; font-size: .7rem; }
+      .contact-top-item strong { font-size: .69rem; overflow-wrap: anywhere; }
+      .contact-top-item small { font-size: .64rem; }
+      .contact-email, .contact-address { font-size: .64rem !important; }
+      .mini-icon { width: 26px; height: 26px; flex-basis: 26px; font-size: .85rem; }
+      .hero-visual { width: 100%; top: auto; height: 225px; bottom: 0; }
+      .hero-visual img { object-position: center center; }
+      .hero-visual::after { background: linear-gradient(180deg, #faf9f0 0%, rgba(250,249,240,.70) 12%, rgba(250,249,240,.05) 48%, rgba(250,249,240,0) 100%); }
+      .hero-grid { min-height: 600px; align-items: flex-start; padding-top: 32px; padding-bottom: 245px; }
+      .hero-content { max-width: 100%; }
+      .hero-eyebrow { font-size: .65rem; letter-spacing: .12em; margin-bottom: 11px; }
+      .hero h1 { font-size: clamp(2.15rem, 9.2vw, 2.75rem); max-width: 100%; line-height: 1.03; margin-bottom: 13px; }
+      .hero-copy { font-size: .91rem; line-height: 1.48; margin-bottom: 16px; max-width: 100%; }
+      .hero-actions { gap: 9px; }
+      .hero-actions .btn { min-height: 45px; padding: 10px 14px; font-size: .81rem; border-radius: 13px; }
+      .hero-actions .btn-primary { flex: 1 1 100%; }
+      .hero-actions .btn-outline { flex: 1 1 100%; }
+      .livestock-section { padding: 21px 0 24px; }
+      .livestock-section .section-head { margin-bottom: 14px; }
+      .livestock-section .section-head h2 { font-size: 2rem; gap: 10px; }
+      .livestock-section .section-head h2::before, .livestock-section .section-head h2::after { width: 25px; }
+      .livestock-section .section-head p { font-size: .83rem; line-height: 1.45; }
+      .focus-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+      .focus-card img { height: 100px; }
+      .focus-content { padding: 0 8px 11px; }
+      .focus-icon { width: 42px; height: 42px; flex-basis: 42px; margin-top: -21px; font-size: 1.1rem; }
+      .focus-content h3 { font-size: .95rem; }
+      .focus-content p { font-size: .74rem; line-height: 1.35; }
+      .focus-link { min-width: 0; padding: 5px 10px; font-size: .75rem; }
+      .value-inner { grid-template-columns: 1fr; padding: 8px 0; }
+      .value-item, .value-item:first-child, .value-item:nth-child(3) { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.2); padding: 10px 0; margin-top: 0; }
+      .value-item:last-child { border-bottom: 0; }
+      .value-icon { flex-basis: 39px; width: 39px; height: 39px; }
+      .value-icon svg { width: 30px; height: 30px; }
+      .section { padding: 60px 0; }
+      .section-head h2 { font-size: 2rem; }
+      .service-grid { grid-template-columns: 1fr; }
+      .about-visual { min-height: 350px; }
+      .about-main-photo { height: 310px; }
+      .about-small-photo { height: 145px; }
+      .contact-form { padding: 18px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .footer-top { flex-direction: column; gap: 24px; }
+      .footer-bottom { flex-direction: column; gap: 7px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brandbar">
+      <div class="container brandbar-inner">
+        <a class="brand" href="#home" aria-label="Huda Agro-solution Limited home">
+          <img class="brand-logo" src="assets/huda-agro-solutions-logo.png" alt="Huda Agro-Solutions logo">
+          <span class="brand-copy">
+            <span class="brand-name">Huda Agro-solution Limited</span>
+            <span class="brand-tag">Livestock Farming&nbsp; | &nbsp;Agribusiness Consultation&nbsp; | &nbsp;Sustainable Food Production</span>
+          </span>
+        </a>
+        <div class="header-contact" aria-label="Business contact information">
+          <a class="contact-top-item" href="https://wa.me/2348088236891" target="_blank" rel="noopener noreferrer">
+            <span class="mini-icon green" aria-hidden="true">◉</span><span><strong>08088236891</strong><small>(WhatsApp)</small></span>
+          </a>
+          <a class="contact-top-item" href="tel:+2349061912280">
+            <span class="mini-icon red" aria-hidden="true">☎</span><span><strong>09061912280</strong></span>
+          </a>
+          <a class="contact-top-item" href="mailto:info.hudaagrosolutions@gmail.com">
+            <span class="mini-icon red" aria-hidden="true">✉</span><span><strong class="contact-email">info.hudaagrosolutions@gmail.com</strong></span>
+          </a>
+          <div class="contact-top-item">
+            <span class="mini-icon red" aria-hidden="true">⌖</span><span><strong class="contact-address">Tarauni LGA, Kano State, Nigeria.</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-bar">
+      <div class="container nav-line">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+          <a class="active" href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#livestock">Our Livestock</a>
+          <a href="#services">Our Services</a>
+          <a href="#approach">Farm Consultation</a>
+          <a href="#livestock">Gallery</a>
+          <a href="#approach">Resources</a>
+          <a href="#contact">Contact Us</a>
+          <a class="btn btn-primary nav-cta" href="#contact"><span aria-hidden="true">☏</span> Get in Touch</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-visual" aria-hidden="true">
+        <img src="assets/livestock-hero.jpg" alt="" fetchpriority="high">
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-eyebrow">Sustainable livestock <span aria-hidden="true">|</span> Better livelihoods</span>
+          <h1>Livestock Farming<br><span>&amp; Agribusiness Solutions</span></h1>
+          <p class="hero-copy">At Huda Agro-solution Limited, we are committed to productive, healthy and profitable livestock farming through practical solutions and professional consultation.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/2348088236891" target="_blank" rel="noopener noreferrer"><span class="whatsapp-mark" aria-hidden="true">◉</span> Enquire on WhatsApp</a>
+            <a class="btn btn-outline" href="#services">Our Services <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section livestock-section" id="livestock">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Our Livestock</h2>
+          <p>We work with different livestock systems and provide practical solutions for efficient and profitable production.</p>
+        </div>
+        <div class="focus-grid">
+          <article class="focus-card">
+            <img src="assets/cattle-card.jpg" alt="Cattle in a livestock farm" loading="lazy">
+            <div class="focus-content"><span class="focus-icon" aria-hidden="true">🐄</span><h3>Cattle Farming</h3><p>Breeding, management and production support for beef and dairy cattle.</p><a href="#contact" class="focus-link">Learn More <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="focus-card">
+            <img src="assets/goats-sheep-card.jpg" alt="Goats and sheep kept on a farm" loading="lazy">
+            <div class="focus-content"><span class="focus-icon" aria-hidden="true">🐐</span><h3>Goats and Sheep</h3><p>Improved breeding, health management and housing solutions.</p><a href="#contact" class="focus-link">Learn More <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="focus-card">
+            <img src="assets/poultry-card.jpg" alt="Chickens and poultry on a farm" loading="lazy">
+            <div class="focus-content"><span class="focus-icon" aria-hidden="true">🐓</span><h3>Poultry Farming</h3><p>Layer and broiler production with modern management practices.</p><a href="#contact" class="focus-link">Learn More <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="focus-card">
+            <img src="assets/fish-card.jpg" alt="Fish production in a farm pond" loading="lazy">
+            <div class="focus-content"><span class="focus-icon" aria-hidden="true">🐟</span><h3>Fish Farming</h3><p>Pond preparation, stocking, feeding and water-quality management.</p><a href="#contact" class="focus-link">Learn More <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="focus-card">
+            <img src="assets/rabbits-card.jpg" alt="Rabbits in a clean farm enclosure" loading="lazy">
+            <div class="focus-content"><span class="focus-icon" aria-hidden="true">🐇</span><h3>Rabbit Farming</h3><p>Breeding and management for meat production and income diversification.</p><a href="#contact" class="focus-link">Learn More <span aria-hidden="true">→</span></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="value-strip" aria-label="Core strengths">
+      <div class="container value-inner">
+        <div class="value-item"><span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="12" cy="10" r="4"/><circle cx="23" cy="11" r="3.5"/><path d="M3 27v-3a9 9 0 0 1 18 0v3zM20 20a7 7 0 0 1 9 6v1h-6"/></svg></span><div><strong>Professional Consultation</strong><small>Advice shaped around your farm</small></div></div>
+        <div class="value-item"><span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 28h23M8 27V14l8-6 8 6v13M13 27v-7h6v7M5 14h23"/></svg></span><div><strong>Practical Farming Solutions</strong><small>Useful plans for daily operations</small></div></div>
+        <div class="value-item"><span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 28h25M7 25V17m7 8V12m7 13V7m7 18V3M5 11l8-6 7 4 8-6"/></svg></span><div><strong>Improved Productivity</strong><small>Better planning and recordkeeping</small></div></div>
+        <div class="value-item"><span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M26 5C14 4 6 10 6 20c0 4 3 7 7 7C24 27 28 16 26 5Z"/><path d="M5 29c4-8 9-12 17-18"/></svg></span><div><strong>Sustainable Practices</strong><small>Responsible livestock management</small></div></div>
+        <div class="value-item"><span class="value-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m3 17 7-7 5 3 5-3 9 7-7 8-6-4-5 4zM10 10l5 5m5-5-5 5m-4 5 6 4m3-5 4 3"/></svg></span><div><strong>Farmers &amp; Investors</strong><small>Support for informed decisions</small></div></div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="about-main-photo"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85" alt="Agricultural land and fields" loading="lazy"></div>
+          <div class="about-small-photo"><img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=700&q=85" alt="Cattle grazing on a farm" loading="lazy"></div>
+          <div class="about-badge">Farm-first<br>planning<br>&amp; advice</div>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">About Huda Agro-solution Limited</span>
+          <h2>A farm business should be built with purpose.</h2>
+          <p>Huda Agro-solution Limited focuses on livestock farming and agribusiness consultation in Nigeria. Our livestock focus includes cattle, goats and sheep, poultry, fish farming, and rabbit farming.</p>
+          <p>Our portfolio brings together production planning, day-to-day farm management, feeding considerations, farm records, biosecurity awareness, and business planning. Recommendations should be shaped around each farm’s goals, resources, and operating conditions.</p>
+          <ul class="check-list">
+            <li><span class="check">✓</span><span>Advice shaped around your farm goals, resources and operating conditions.</span></li>
+            <li><span class="check">✓</span><span>Simple plans and records that help make day-to-day work more consistent.</span></li>
+            <li><span class="check">✓</span><span>A balanced view of animal welfare, risk management and commercial realities.</span></li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Tell us about your plans <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What we do</span>
+          <h2>Farm support from planning to production.</h2>
+          <p>Whether you are starting out, improving an existing farm or exploring an investment, we can help you map the work and make informed decisions.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6M3 9h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Farm setup & planning</h3><p>Think through housing, equipment, stock selection, starter budgets and the steps needed to establish an operation.</p><a href="#contact" class="text-link">Discuss your farm <span class="arrow">↗</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-3.8 7-10.2V5l-7-2-7 2v5.8C5 17.2 12 21 12 21Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12.2c1.4-2.2 3.1-3.1 6.7-3.3-.1 3.8-2 6-4.4 6-.9 0-1.8-.8-2.3-2.7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+            <h3>Livestock production systems</h3><p>Support with choosing a suitable production focus, daily routines, space planning and practical record keeping.</p><a href="#contact" class="text-link">Explore production <span class="arrow">↗</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 19.5h16M6.5 19V10l5.5-5 5.5 5v9.5M9.5 19v-5h5v5M3 10h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Farm management advisory</h3><p>Organise work plans, staff duties, input tracking, stock records and routine reviews to make operations easier to manage.</p><a href="#contact" class="text-link">Improve operations <span class="arrow">↗</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 7.5h16M6 4h12v16H6zM9 11h6M9 14.5h6M9 18h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Feed & nutrition planning</h3><p>Review feeding routines, feed sourcing, storage and cost considerations with appropriate animal-health input where required.</p><a href="#contact" class="text-link">Talk nutrition <span class="arrow">↗</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 17V9m5 8V4m5 13v-6m5 6V7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m4 8 6-5 5 5 5-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Business & market planning</h3><p>Clarify customers, pricing assumptions, operating costs and realistic next steps before committing more capital.</p><a href="#contact" class="text-link">Plan your next step <span class="arrow">↗</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3 4.5 6v5.4c0 4.6 3.2 7.7 7.5 9.6 4.3-1.9 7.5-5 7.5-9.6V6L12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12.2 10.8 14.5 15.8 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Biosecurity & risk awareness</h3><p>Build consistent farm hygiene, visitor-control and observation routines, and know when to involve a qualified veterinarian.</p><a href="#contact" class="text-link">Strengthen routines <span class="arrow">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+
+    
+
+    
+
+    
+
+    <section class="section process" id="approach">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How we work</span>
+          <h2>Clear steps. Practical progress.</h2>
+          <p>Good consultation should leave you with decisions and actions—not just a conversation.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step"><div class="step-number">01</div><h3>Understand the goal</h3><p>Discuss your livestock focus, current challenges, resources, budget and desired outcome.</p></article>
+          <article class="process-step"><div class="step-number">02</div><h3>Review the reality</h3><p>Look at current routines, facilities, records and constraints before making recommendations.</p></article>
+          <article class="process-step"><div class="step-number">03</div><h3>Build a practical plan</h3><p>Agree on actions, priorities, timelines and simple measures for reviewing progress.</p></article>
+          <article class="process-step"><div class="step-number">04</div><h3>Follow through</h3><p>Review what is working, identify gaps and adjust the plan as the farm develops.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="cta-copy"><span class="eyebrow">Start a conversation</span><h2>Have a farm idea you want to make real?</h2><p>Tell us what you are raising—or planning to raise—and where you need support. We can start with a focused conversation about your next steps.</p></div>
+          <a class="btn btn-primary" href="#contact">Book a consultation <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">Contact us</span>
+          <h2>Let’s talk about your farm.</h2>
+          <p>Contact us directly by phone, WhatsApp or email. You can also use the form to prepare a detailed enquiry in WhatsApp.</p>
+          <div class="contact-details">
+            <div class="contact-detail"><span class="service-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 16.5v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 1.1 3.8 2 2 0 0 1 3.1 1.6h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L7 9.6a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Official WhatsApp</strong><a href="https://wa.me/2348088236891" target="_blank" rel="noopener noreferrer">08088236891 · Message us on WhatsApp</a></div></div>
+            <div class="contact-detail"><span class="service-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 16.5v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 1.1 3.8 2 2 0 0 1 3.1 1.6h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L7 9.6a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Additional phone</strong><a href="tel:+2349061912280">09061912280</a></div></div>
+            <div class="contact-detail"><span class="service-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="4.5" width="19" height="15" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m3.5 6 8.5 6.5L20.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Email</strong><a href="mailto:info.hudaagrosolutions@gmail.com">info.hudaagrosolutions@gmail.com</a></div></div>
+            <div class="contact-detail"><span class="service-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg></span><div><strong>Farm / office location</strong><span>Tarauni LGA, Kano State, Nigeria</span></div></div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-grid">
+            <div class="field"><label for="name">Your name</label><input id="name" name="name" placeholder="Enter your name" required></div>
+            <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="How can we reach you?" required></div>
+            <div class="field"><label for="interest">Area of interest</label><select id="interest" name="interest" required><option value="" disabled selected>Select a service</option><option>Farm setup & planning</option><option>Livestock production</option><option>Fish farming / aquaculture</option><option>Farm management</option><option>Feed & nutrition planning</option><option>Business & market planning</option><option>Other enquiry</option></select></div>
+            <div class="field"><label for="location">Farm location</label><input id="location" name="location" placeholder="Town / state"></div>
+            <div class="field full"><label for="message">How can we help?</label><textarea id="message" name="message" placeholder="Briefly describe your farm or plans..." required></textarea></div>
+            <div class="field full"><button class="btn btn-primary" type="submit">Prepare WhatsApp enquiry <span class="arrow">↗</span></button></div>
+          </div>
+          <p class="form-note">Submitting this form opens WhatsApp with your enquiry filled in. Please review the message and press Send in WhatsApp. This website does not store your form details.</p>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="#home"><img class="brand-logo" src="assets/huda-agro-solutions-logo.png" alt="Huda Agro-Solutions logo"><span class="brand-copy"><span class="brand-name">Huda Agro-solution Limited</span><span class="brand-tag">Livestock & Agribusiness</span></span></a>
+          <p class="footer-copy">Practical livestock farming and agribusiness consultation, with farm management and sustainable growth in mind.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#livestock">Livestock</a><a href="#approach">Our approach</a><a href="#contact">Contact</a></nav>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Huda Agro-solution Limited. All rights reserved.</span><span>Farm with purpose. Grow with confidence.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    // Official Huda Agro-solution Limited WhatsApp number, international format (digits only).
+    // Local number 08088236891 is converted to 2348088236891 for the wa.me link.
+    const WHATSAPP_NUMBER = "2348088236891";
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      menuToggle.textContent = open ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation');
+      menuToggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('contactForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const status = document.getElementById('formStatus');
+      if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
+        status.style.display = 'block';
+        status.textContent = 'The WhatsApp enquiry could not be prepared. Please contact us directly on 08088236891.';
+        return;
+      }
+      const data = new FormData(event.currentTarget);
+      const message = [
+        'Hello Huda Agro-solution Limited, I would like to make an enquiry.',
+        `Name: ${data.get('name')}`,
+        `Phone: ${data.get('phone')}`,
+        `Area of interest: ${data.get('interest')}`,
+        `Farm location: ${data.get('location') || 'Not provided'}`,
+        `Message: ${data.get('message')}`
+      ].join('\n');
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+      status.style.display = 'block';
+      status.textContent = 'Your enquiry has been prepared in WhatsApp. Please review and send it there.';
+    });
+  </script>
+</body>
+</html>
